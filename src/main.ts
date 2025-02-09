@@ -1,11 +1,25 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import {Button, NavBar, Tabbar, TabbarItem} from "vant";
+import Vant from "vant";
+import 'vant/lib/index.css'
+import {createRouter, createWebHashHistory} from 'vue-router'
+import routes from "./config/router.ts";
 
 let app = createApp(App);
-app.use(Button)
-app.use(NavBar)
-app.use(Tabbar);
-app.use(TabbarItem);
+app.use(Vant)
+
+
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes,
+})
+app.use(router)
+
+
+
+
+
+
+
 app.mount('#app')
